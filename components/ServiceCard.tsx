@@ -2,42 +2,38 @@
 
 import Link from 'next/link';
 import { Service } from '@/lib/features/services/servicesSlice';
+import styles from '@/styles/components/ServiceCard.module.css';
 
 interface ServiceCardProps {
   service: Service;
 }
 
 export default function ServiceCard({ service }: ServiceCardProps) {
+  const getIcon = () => {
+    const icons: Record<string, string> = {
+      digital: '🖨️',
+      'wide-format': '📐',
+      offset: '📰',
+      uv: '☀️',
+      'business-cards': '💼',
+      design: '🎨',
+    };
+    return icons[service.category] || '📄';
+  };
+
   return (
-    <Link
-      href={`/services/${service.category}`}
-      className="group block bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10"
-    >
-      {/* Изображение */}
-      <div className="relative h-48 bg-gradient-to-br from-blue-900/20 to-cyan-900/20 overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center text-6xl opacity-50 group-hover:scale-110 transition-transform duration-300">
-          {service.category === 'digital' && '🖨️'}
-          {service.category === 'wide-format' && '📐'}
-          {service.category === 'offset' && '📰'}
-          {service.category === 'uv' && '☀️'}
-          {service.category === 'business-cards' && '💼'}
-          {service.category === 'design' && '🎨'}
-        </div>
+    <Link href={`/services/${service.category}`} className={styles.card}>
+      <div className={styles.imageContainer}>
+        <div className={styles.icon}>{getIcon()}</div>
       </div>
 
-      {/* Контент */}
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-          {service.title}
-        </h3>
-        <p className="text-gray-400 text-sm leading-relaxed">
-          {service.description}
-        </p>
+      <div className={styles.body}>
+        <h3 className={styles.title}>{service.title}</h3>
+        <p className={styles.description}>{service.description}</p>
 
-        {/* Кнопка */}
-        <div className="mt-4 flex items-center text-blue-400 text-sm font-semibold">
-          <span className="group-hover:translate-x-1 transition-transform">
-            Подробнее →
+        <div className={styles.footer}>
+          <span>
+            Подробнее <span className={styles.arrow}>→</span>
           </span>
         </div>
       </div>

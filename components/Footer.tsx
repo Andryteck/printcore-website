@@ -1,64 +1,62 @@
 'use client';
 
 import Link from 'next/link';
+import styles from '@/styles/components/Footer.module.css';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 border-t border-gray-800 text-gray-300">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className={styles.footer}>
+      <div className={styles.container}>
+        <div className={styles.grid}>
           {/* О компании */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-4">PrintCore</h3>
-            <p className="text-sm leading-relaxed mb-4">
+          <div className={styles.section}>
+            <h3 className={styles.sectionTitle}>PrintCore</h3>
+            <p className={styles.sectionText}>
               Профессиональная полиграфия в Минске. Качественная печать любой сложности с 2010 года.
             </p>
-            <div className="flex gap-4">
+            <div className={styles.socialLinks}>
               <a
                 href="https://t.me/+375333365678"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors"
+                className={styles.socialLink}
               >
                 📱
               </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors"
-              >
+              <a href="#" className={styles.socialLink}>
                 📧
               </a>
             </div>
           </div>
 
           {/* Услуги */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-4">Услуги</h3>
-            <ul className="space-y-2 text-sm">
+          <div className={styles.section}>
+            <h3 className={styles.sectionTitle}>Услуги</h3>
+            <ul className={styles.linkList}>
               <li>
-                <Link href="/services/digital" className="hover:text-white transition-colors">
+                <Link href="/services/digital" className={styles.link}>
                   Цифровая печать
                 </Link>
               </li>
               <li>
-                <Link href="/services/wide-format" className="hover:text-white transition-colors">
+                <Link href="/services/wide-format" className={styles.link}>
                   Широкоформатная печать
                 </Link>
               </li>
               <li>
-                <Link href="/services/offset" className="hover:text-white transition-colors">
+                <Link href="/services/offset" className={styles.link}>
                   Офсетная печать
                 </Link>
               </li>
               <li>
-                <Link href="/services/uv" className="hover:text-white transition-colors">
+                <Link href="/services/uv" className={styles.link}>
                   УФ-печать
                 </Link>
               </li>
               <li>
-                <Link href="/services/design" className="hover:text-white transition-colors">
+                <Link href="/services/design" className={styles.link}>
                   Дизайн и верстка
                 </Link>
               </li>
@@ -66,31 +64,31 @@ export default function Footer() {
           </div>
 
           {/* Информация */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-4">Информация</h3>
-            <ul className="space-y-2 text-sm">
+          <div className={styles.section}>
+            <h3 className={styles.sectionTitle}>Информация</h3>
+            <ul className={styles.linkList}>
               <li>
-                <Link href="/about" className="hover:text-white transition-colors">
+                <Link href="/about" className={styles.link}>
                   О компании
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio" className="hover:text-white transition-colors">
+                <Link href="/portfolio" className={styles.link}>
                   Портфолио
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-white transition-colors">
+                <Link href="/blog" className={styles.link}>
                   Блог
                 </Link>
               </li>
               <li>
-                <Link href="/contacts" className="hover:text-white transition-colors">
+                <Link href="/contacts" className={styles.link}>
                   Контакты
                 </Link>
               </li>
               <li>
-                <Link href="/account" className="hover:text-white transition-colors">
+                <Link href="/account" className={styles.link}>
                   Личный кабинет
                 </Link>
               </li>
@@ -98,38 +96,36 @@ export default function Footer() {
           </div>
 
           {/* Контакты */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-4">Контакты</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
+          <div className={styles.section}>
+            <h3 className={styles.sectionTitle}>Контакты</h3>
+            <ul className={styles.contactList}>
+              <li className={styles.contactItem}>
                 <span>📍</span>
                 <span>Пр. Дзержинского 3Б, Минск</span>
               </li>
-              <li className="flex items-start gap-2">
+              <li className={styles.contactItem}>
                 <span>📞</span>
-                <a href="tel:+375333365678" className="hover:text-white transition-colors">
-                  +375 33 336 5678
-                </a>
+                <a href="tel:+375333365678">+375 33 336 5678</a>
               </li>
-              <li className="flex items-start gap-2">
+              <li className={styles.contactItem}>
                 <span>📧</span>
-                <a href="mailto:info@printcore.by" className="hover:text-white transition-colors">
-                  info@printcore.by
-                </a>
+                <a href="mailto:info@printcore.by">info@printcore.by</a>
               </li>
-              <li className="flex items-start gap-2">
+              <li className={styles.contactItem}>
                 <span>🕐</span>
-                <span>Пн-Пт: 9:00-18:00<br />Сб-Вс: выходной</span>
+                <span>
+                  Пн-Пт: 9:00-18:00<br />
+                  Сб-Вс: выходной
+                </span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+        <div className={styles.copyright}>
           <p>© {currentYear} PrintCore — команда, которой можно доверять.</p>
         </div>
       </div>
     </footer>
   );
 }
-

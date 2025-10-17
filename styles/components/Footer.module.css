@@ -1,0 +1,131 @@
+.footer {
+  background: rgb(17, 24, 39);
+  border-top: 1px solid rgb(31, 41, 55);
+  color: rgb(156, 163, 175);
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Section */
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTitle {
+  color: white;
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.sectionText {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialLink {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: rgb(31, 41, 55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.socialLink:hover {
+  background: #2563eb;
+}
+
+/* Links */
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.linkList li {
+  font-size: 0.875rem;
+}
+
+.link {
+  color: rgb(156, 163, 175);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: white;
+}
+
+/* Contact */
+.contactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.contactItem a {
+  color: rgb(156, 163, 175);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contactItem a:hover {
+  color: white;
+}
+
+/* Copyright */
+.copyright {
+  border-top: 1px solid rgb(31, 41, 55);
+  margin-top: 2rem;
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+

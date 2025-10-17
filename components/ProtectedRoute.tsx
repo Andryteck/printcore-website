@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAppSelector, useAppDispatch } from '@/lib/store';
 import { initializeAuth } from '@/lib/features/auth/authSlice';
+import styles from '@/styles/components/ProtectedRoute.module.css';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -33,10 +34,10 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
   // Показываем загрузку пока идет инициализация
   if (!isInitialized || isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mb-4"></div>
-          <p className="text-gray-400">Загрузка...</p>
+      <div className={styles.loading}>
+        <div className={styles.loadingContent}>
+          <div className={styles.spinner}></div>
+          <p className={styles.loadingText}>Загрузка...</p>
         </div>
       </div>
     );

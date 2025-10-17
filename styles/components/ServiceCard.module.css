@@ -1,0 +1,76 @@
+.card {
+  display: block;
+  background: rgb(17, 24, 39);
+  border: 1px solid rgb(31, 41, 55);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+.card:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 20px 50px rgba(59, 130, 246, 0.1);
+}
+
+.imageContainer {
+  position: relative;
+  height: 12rem;
+  background: linear-gradient(to bottom right, rgba(30, 58, 138, 0.2), rgba(6, 182, 212, 0.2));
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 4rem;
+  opacity: 0.5;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .icon {
+  transform: scale(1.1);
+}
+
+.body {
+  padding: 1.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.card:hover .title {
+  color: #60a5fa;
+}
+
+.description {
+  color: rgb(156, 163, 175);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.footer {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  color: #60a5fa;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .arrow {
+  transform: translateX(0.25rem);
+}
+
