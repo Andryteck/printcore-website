@@ -8,6 +8,7 @@ export default function Header() {
   const dispatch = useAppDispatch();
   const { isMobileMenuOpen } = useAppSelector((state) => state.navigation);
   const { items } = useAppSelector((state) => state.cart);
+  const { isAuthenticated, user } = useAppSelector((state) => state.auth);
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-lg bg-gray-900/85 border-b border-gray-800">
@@ -76,12 +77,22 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link
-                href="/account"
-                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-2 rounded-full font-semibold transition-all shadow-lg shadow-blue-500/30"
-              >
-                Личный кабинет
-              </Link>
+              {isAuthenticated ? (
+                <Link
+                  href="/account"
+                  className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-2 rounded-full font-semibold transition-all shadow-lg shadow-blue-500/30"
+                >
+                  <span>👤</span>
+                  <span>{user?.name?.split(' ')[0] || 'Кабинет'}</span>
+                </Link>
+              ) : (
+                <Link
+                  href="/login"
+                  className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-2 rounded-full font-semibold transition-all shadow-lg shadow-blue-500/30"
+                >
+                  Войти
+                </Link>
+              )}
             </li>
           </ul>
 
@@ -155,12 +166,22 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link
-                href="/account"
-                className="block bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-center px-6 py-3 rounded-full font-semibold"
-              >
-                Личный кабинет
-              </Link>
+              {isAuthenticated ? (
+                <Link
+                  href="/account"
+                  className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <span>👤</span>
+                  <span>{user?.name?.split(' ')[0] || 'Кабинет'}</span>
+                </Link>
+              ) : (
+                <Link
+                  href="/login"
+                  className="block bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-center px-6 py-3 rounded-full font-semibold"
+                >
+                  Войти
+                </Link>
+              )}
             </li>
           </ul>
         </div>
