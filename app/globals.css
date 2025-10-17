@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0b0f17;
+  --card: #0f1420;
+  --muted: #9aa4b2;
+  --text: #e6e8ec;
+  --accent: #3b82f6;
+  --accent-2: #06b6d4;
+  --border: #1b2231;
+  --ring: rgba(59, 130, 246, 0.35);
+  --shadow: rgba(0, 0, 0, 0.5);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(1200px 800px at 80% -10%, rgba(59, 130, 246, 0.15), transparent 60%),
+              radial-gradient(1000px 700px at -10% 20%, rgba(6, 182, 212, 0.12), transparent 55%),
+              var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Анимации появления */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Кастомный скроллбар */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
