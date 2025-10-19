@@ -6,36 +6,48 @@ import styles from '@/styles/components/ServiceCard.module.css';
 
 interface ServiceCardProps {
   service: Service;
+  badge?: string;
 }
 
-export default function ServiceCard({ service }: ServiceCardProps) {
+export default function ServiceCard({ service, badge }: ServiceCardProps) {
   const getIcon = () => {
     const icons: Record<string, string> = {
-      digital: '🖨️',
+      photo: '📸',
+      poligrafy: '📄',
       'wide-format': '📐',
-      offset: '📰',
-      uv: '☀️',
-      'business-cards': '💼',
+      binding: '📚',
       design: '🎨',
+      documents: '🖨️',
     };
     return icons[service.category] || '📄';
   };
 
   return (
     <Link href={`/services/${service.category}`} className={styles.card}>
-      <div className={styles.imageContainer}>
-        <div className={styles.icon}>{getIcon()}</div>
-      </div>
-
-      <div className={styles.body}>
-        <h3 className={styles.title}>{service.title}</h3>
-        <p className={styles.description}>{service.description}</p>
-
-        <div className={styles.footer}>
-          <span>
-            Подробнее <span className={styles.arrow}>→</span>
-          </span>
+      {service.image ? (
+        <img
+          className={styles.image}
+          src={service.image}
+          alt={service.title}
+        />
+      ) : (
+        <div className={styles.imageContainer}>
+          <div className={styles.icon}>{getIcon()}</div>
         </div>
+      )}
+      
+      {badge && (
+        <div className={styles.badge}>{badge}</div>
+      )}
+
+      <div className={styles.content}>
+        <h3 className={styles.title}>{service.title}</h3>
+        {service.description && (
+          <p className={styles.description}>{service.description}</p>
+        )}
+        {service.price && (
+          <div className={styles.price}>от {service.price} руб</div>
+        )}
       </div>
     </Link>
   );

@@ -53,11 +53,8 @@ export default function RegisterForm() {
       isValid = false;
     }
 
-    // Phone validation
-    if (!formData.phone) {
-      errors.phone = 'Телефон обязателен';
-      isValid = false;
-    } else if (!/^[\d\s\+\-\(\)]+$/.test(formData.phone)) {
+    // Phone validation (опционально)
+    if (formData.phone && !/^[\d\s\+\-\(\)]+$/.test(formData.phone)) {
       errors.phone = 'Некорректный формат телефона';
       isValid = false;
     }
@@ -168,7 +165,7 @@ export default function RegisterForm() {
       {/* Phone */}
       <div>
         <label htmlFor="phone" className="block text-sm font-semibold mb-2">
-          Телефон
+          Телефон <span className="text-gray-500 text-xs">(необязательно)</span>
         </label>
         <input
           type="tel"

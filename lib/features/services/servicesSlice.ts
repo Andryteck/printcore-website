@@ -20,45 +20,51 @@ const initialState: ServicesState = {
   services: [
     {
       id: '1',
-      title: 'Цифровая печать',
-      description: 'Оперативные тиражи, стабильный цвет, персонализация',
-      category: 'digital',
-      image: '/images/digital-print.jpg'
+      title: 'Фотопечать',
+      description: 'Профессиональная печать фотографий',
+      category: 'photo',
+      price: 1.2,
+      image: 'https://static.printcore.by/content/IMG_4678.JPG'
     },
     {
       id: '2',
-      title: 'Широкоформатная печать',
-      description: 'Баннеры, плакаты больших размеров, интерьерная печать',
-      category: 'wide-format',
-      image: '/images/wide-format.jpg'
+      title: 'Полиграфия',
+      description: 'Визитки, листовки, буклеты и каталоги',
+      category: 'poligrafy',
+      price: 0.5,
+      image: 'https://static.printcore.by/content/IMG_4758.JPG'
     },
     {
       id: '3',
-      title: 'Офсетная печать',
-      description: 'Большие тиражи с высоким качеством и экономией',
-      category: 'offset',
-      image: '/images/offset.jpg'
+      title: 'Широкоформатная печать',
+      description: 'Баннеры, плакаты больших размеров',
+      category: 'wide-format',
+      price: 2,
+      image: 'https://static.printcore.by/content/IMG_4689.JPG'
     },
     {
       id: '4',
-      title: 'УФ-печать',
-      description: 'Печать на любых поверхностях с защитой от выцветания',
-      category: 'uv',
-      image: '/images/uv-print.jpg'
+      title: 'Переплетные работы',
+      description: 'Брошюрование, переплет документов',
+      category: 'binding',
+      price: 7,
+      image: 'https://static.printcore.by/content/IMG_4698.JPG'
     },
     {
       id: '5',
-      title: 'Визитки',
-      description: 'От стандартных до премиальных с тиснением',
-      category: 'business-cards',
-      image: '/images/business-cards.jpg'
+      title: 'Дизайн полиграфии',
+      description: 'Профессиональная разработка макетов',
+      category: 'design',
+      price: 17,
+      image: 'https://static.printcore.by/content/IMG_4685.JPG'
     },
     {
       id: '6',
-      title: 'Дизайн и верстка',
-      description: 'Профессиональная разработка макетов',
-      category: 'design',
-      image: '/images/design.jpg'
+      title: 'Печать документов',
+      description: 'Быстрая печать документов любых форматов',
+      category: 'documents',
+      price: 0.3,
+      image: 'https://static.printcore.by/content/IMG_4690.JPG'
     }
   ],
   selectedCategory: null,

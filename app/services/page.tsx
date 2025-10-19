@@ -1,76 +1,115 @@
 'use client';
 
-import { useAppSelector } from '@/lib/store';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ServiceCard from '@/components/ServiceCard';
+import styles from '@/styles/services.module.css';
+
+interface Product {
+  id: number;
+  title: string;
+  price: string;
+  image: string;
+  badge?: string;
+  link: string;
+}
 
 export default function ServicesPage() {
-  const { services } = useAppSelector((state) => state.services);
+  const products: Product[] = [
+    {
+      id: 1,
+      title: 'Фотопечать',
+      price: 'от 1.2 руб',
+      image: 'https://static.printcore.by/content/IMG_4678.JPG',
+      badge: 'Хит',
+      link: 'https://printcore.by/photo'
+    },
+    {
+      id: 2,
+      title: 'Полиграфия',
+      price: 'от 0.5 руб',
+      image: 'https://static.printcore.by/content/IMG_4758.JPG',
+      link: 'https://printcore.by/all_poligrafy'
+    },
+    {
+      id: 3,
+      title: 'Широкоформатная печать',
+      price: 'от 2 руб',
+      image: 'https://static.printcore.by/content/IMG_4689.JPG',
+      link: 'https://printcore.by/wide_format'
+    },
+    {
+      id: 4,
+      title: 'Переплетные работы',
+      price: 'от 7 руб',
+      image: 'https://static.printcore.by/content/IMG_4698.JPG',
+      link: 'https://printcore.by/order'
+    },
+    {
+      id: 5,
+      title: 'Дизайн полиграфии',
+      price: 'от 17 руб',
+      image: 'https://static.printcore.by/content/IMG_4685.JPG',
+      link: 'http://printcore.by/design_order'
+    },
+    {
+      id: 6,
+      title: 'Печать документов',
+      price: 'от 0.3 руб',
+      image: 'https://static.printcore.by/content/IMG_4690.JPG',
+      link: 'https://printcore.by/order'
+    },
+    {
+      id: 7,
+      title: 'Наклейки, этикетки',
+      price: 'от 0.4 руб',
+      image: 'https://static.printcore.by/content/IMG_4696.JPG',
+      link: 'https://printcore.by/stikers'
+    },
+    {
+      id: 8,
+      title: 'Сувениры и брендирование',
+      price: 'от 25 руб',
+      image: 'https://static.printcore.by/content/IMG_4706.JPG',
+      link: 'https://printcore.by/order'
+    }
+  ];
+
+  const handleProductClick = (link: string) => {
+    window.location.href = link;
+  };
 
   return (
     <>
       <Header />
       
-      <main className="py-20">
-        <div className="container mx-auto px-4">
-          {/* Заголовок */}
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold uppercase tracking-wider mb-4">
-              Наши услуги
-            </span>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Полный спектр полиграфических услуг
-            </h1>
-            <p className="text-gray-400 text-xl max-w-3xl mx-auto">
-              От визиток до сложных тиражей и упаковки. Подбираем технологию под задачу: 
-              цифровая печать, широкоформат, тиснение, вырубка и постпечатная обработка.
-            </p>
+      <main className={styles.wrapper} id="services">
+        <div className={styles['products-container']}>
+          <div className={styles['page-header']}>
+            <h2>Наши продукты</h2>
+            <p>Выберите интересующий вас товар</p>
           </div>
-
-          {/* Сетка услуг */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            {services.map((service) => (
-              <ServiceCard key={service.id} service={service} />
+          
+          <div className={styles['products-flex']}>
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className={styles['product-card']}
+                onClick={() => handleProductClick(product.link)}
+              >
+                <img
+                  className={styles['product-image']}
+                  src={product.image}
+                  alt={product.title}
+                />
+                {product.badge && (
+                  <div className={styles['product-badge']}>{product.badge}</div>
+                )}
+                <div className={styles['product-content']}>
+                  <h2>{product.title}</h2>
+                  <div className={styles['product-price']}>{product.price}</div>
+                </div>
+              </div>
             ))}
-          </div>
-
-          {/* Дополнительная информация */}
-          <div className="bg-gray-900 border border-gray-800 rounded-3xl p-8 md:p-12">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div>
-                <div className="text-4xl mb-4">📞</div>
-                <h3 className="text-xl font-bold mb-2">Бесплатная консультация</h3>
-                <p className="text-gray-400 mb-4">
-                  Не знаете, какая технология подойдет? Звоните, поможем выбрать оптимальное решение.
-                </p>
-                <a href="tel:+375333365678" className="text-blue-400 hover:text-blue-300 font-semibold">
-                  +375 33 336 5678
-                </a>
-              </div>
-
-              <div>
-                <div className="text-4xl mb-4">📐</div>
-                <h3 className="text-xl font-bold mb-2">Помощь с макетами</h3>
-                <p className="text-gray-400 mb-4">
-                  Наши дизайнеры проверят макет, подскажут, как улучшить, или создадут с нуля.
-                </p>
-                <a href="/services/design" className="text-blue-400 hover:text-blue-300 font-semibold">
-                  Дизайн-услуги →
-                </a>
-              </div>
-
-              <div>
-                <div className="text-4xl mb-4">⚡</div>
-                <h3 className="text-xl font-bold mb-2">Срочные заказы</h3>
-                <p className="text-gray-400 mb-4">
-                  Нужно быстро? Печатаем срочные тиражи от 24 часов без потери качества.
-                </p>
-                <a href="/contacts" className="text-blue-400 hover:text-blue-300 font-semibold">
-                  Связаться →
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </main>

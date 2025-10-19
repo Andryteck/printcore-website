@@ -1,0 +1,8 @@
+# Скопируйте это содержимое в файл .env.local в папке printcore_website
+
+NEXT_PUBLIC_API_URL=http://localhost:3001/api
+
+# Web3Forms Access Key для контактной формы
+# Получите ключ на https://web3forms.com
+NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_web3forms_access_key_here
+
