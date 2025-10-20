@@ -1,0 +1,35 @@
+/* Мобильная версия - показываем только на мобильных устройствах */
+.phoneLinkMobile {
+  display: inline;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.phoneLinkMobile:hover {
+  color: rgb(96, 165, 250);
+}
+
+/* Десктопная версия - скрываем на мобильных */
+.phoneLinkDesktop {
+  display: none;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.phoneLinkDesktop:hover {
+  color: rgb(96, 165, 250);
+}
+
+/* На десктопе показываем Telegram ссылку и скрываем tel: */
+@media (min-width: 1024px) {
+  .phoneLinkMobile {
+    display: none;
+  }
+  
+  .phoneLinkDesktop {
+    display: inline;
+  }
+}
+

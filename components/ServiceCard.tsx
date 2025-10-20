@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { Service } from '@/lib/features/services/servicesSlice';
 import styles from '@/styles/components/ServiceCard.module.css';

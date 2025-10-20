@@ -24,7 +24,7 @@ const initialState: ServicesState = {
       description: 'Профессиональная печать фотографий',
       category: 'photo',
       price: 1.2,
-      image: 'https://static.printcore.by/content/IMG_4678.JPG'
+      image: '/images/gallery/IMG_4678.JPG'
     },
     {
       id: '2',
@@ -32,7 +32,7 @@ const initialState: ServicesState = {
       description: 'Визитки, листовки, буклеты и каталоги',
       category: 'poligrafy',
       price: 0.5,
-      image: 'https://static.printcore.by/content/IMG_4758.JPG'
+      image: '/images/gallery/IMG_4758.JPG'
     },
     {
       id: '3',
@@ -40,7 +40,7 @@ const initialState: ServicesState = {
       description: 'Баннеры, плакаты больших размеров',
       category: 'wide-format',
       price: 2,
-      image: 'https://static.printcore.by/content/IMG_4689.JPG'
+      image: '/images/gallery/IMG_4689.JPG'
     },
     {
       id: '4',
@@ -48,7 +48,7 @@ const initialState: ServicesState = {
       description: 'Брошюрование, переплет документов',
       category: 'binding',
       price: 7,
-      image: 'https://static.printcore.by/content/IMG_4698.JPG'
+      image: '/images/gallery/IMG_4698.JPG'
     },
     {
       id: '5',
@@ -56,7 +56,7 @@ const initialState: ServicesState = {
       description: 'Профессиональная разработка макетов',
       category: 'design',
       price: 17,
-      image: 'https://static.printcore.by/content/IMG_4685.JPG'
+      image: '/images/gallery/IMG_4685.JPG'
     },
     {
       id: '6',
@@ -64,7 +64,7 @@ const initialState: ServicesState = {
       description: 'Быстрая печать документов любых форматов',
       category: 'documents',
       price: 0.3,
-      image: 'https://static.printcore.by/content/IMG_4690.JPG'
+      image: '/images/gallery/IMG_4690.JPG'
     }
   ],
   selectedCategory: null,

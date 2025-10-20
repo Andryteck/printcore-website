@@ -1,6 +1,5 @@
-'use client';
-
 import Link from 'next/link';
+import PhoneLink from './PhoneLink';
 import styles from '@/styles/components/Footer.module.css';
 
 export default function Footer() {
@@ -105,7 +104,7 @@ export default function Footer() {
               </li>
               <li className={styles.contactItem}>
                 <span>📞</span>
-                <a href="tel:+375333365678">+375 33 336 5678</a>
+                <PhoneLink />
               </li>
               <li className={styles.contactItem}>
                 <span>📧</span>
