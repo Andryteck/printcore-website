@@ -6,6 +6,12 @@ export interface User {
   email: string;
   name: string;
   phone?: string;
+  userType?: 'individual' | 'legal';
+  unp?: string; // УНП для юридических лиц
+  legalAddress?: string; // Юридический адрес
+  bankName?: string; // Название банка
+  bankAccount?: string; // Расчетный счет
+  bankCode?: string; // БИК банка
 }
 
 export interface AuthState {
@@ -77,12 +83,12 @@ export const logoutUser = createAsyncThunk(
   }
 );
 
-// Обновление профиля
+// Обновление профиля текущего пользователя
 export const updateUserProfile = createAsyncThunk(
   'auth/updateProfile',
-  async ({ userId, data }: { userId: string; data: Partial<User> }, { rejectWithValue }) => {
+  async (data: Partial<User>, { rejectWithValue }) => {
     try {
-      const user = await authService.updateProfile(userId, data);
+      const user = await authService.updateProfile(data);
       return user;
     } catch (error: any) {
       return rejectWithValue(error.message || 'Ошибка обновления профиля');
@@ -108,18 +114,21 @@ const authSlice = createSlice({
     builder
       .addCase(initializeAuth.pending, (state) => {
         state.isLoading = true;
+        console.log('[authSlice] initializeAuth.pending');
       })
       .addCase(initializeAuth.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isInitialized = true;
+        console.log('[authSlice] initializeAuth.fulfilled, user:', action.payload);
         if (action.payload) {
           state.user = action.payload;
           state.isAuthenticated = true;
         }
       })
-      .addCase(initializeAuth.rejected, (state) => {
+      .addCase(initializeAuth.rejected, (state, action) => {
         state.isLoading = false;
         state.isInitialized = true;
+        console.log('[authSlice] initializeAuth.rejected, error:', action.error);
       });
 
     // Register

@@ -20,19 +20,28 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
   useEffect(() => {
     // Инициализация авторизации при первой загрузке
     if (!isInitialized) {
+      console.log('[ProtectedRoute] Initializing auth...');
       dispatch(initializeAuth());
     }
   }, [dispatch, isInitialized]);
 
   useEffect(() => {
+    console.log('[ProtectedRoute] State:', { 
+      isInitialized, 
+      isAuthenticated, 
+      isLoading 
+    });
+    
     // Редирект на login если не авторизован и инициализация завершена
     if (isInitialized && !isAuthenticated && !isLoading) {
+      console.log('[ProtectedRoute] Redirecting to /login');
       router.push('/login');
     }
   }, [isAuthenticated, isInitialized, isLoading, router]);
 
   // Показываем загрузку пока идет инициализация
   if (!isInitialized || isLoading) {
+    console.log('[ProtectedRoute] Showing loading state');
     return (
       <div className={styles.loading}>
         <div className={styles.loadingContent}>

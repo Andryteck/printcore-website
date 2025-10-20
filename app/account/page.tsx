@@ -1,10 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import { useAppSelector, useAppDispatch } from '@/lib/store';
 import { logoutUser } from '@/lib/features/auth/authSlice';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProtectedRoute from '@/components/ProtectedRoute';
+import EditProfileModal from '@/components/EditProfileModal';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -12,6 +14,7 @@ function AccountContent() {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const { user } = useAppSelector((state) => state.auth);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const handleLogout = async () => {
     try {
@@ -21,6 +24,27 @@ function AccountContent() {
       console.error('Logout failed:', error);
     }
   };
+
+  // ProtectedRoute уже проверил авторизацию, поэтому user точно есть
+  // Но добавим проверку на всякий случай
+  if (!user) {
+    return (
+      <>
+        <Header />
+        <main className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-center min-h-[60vh]">
+              <div className="text-center">
+                <div className="animate-spin h-12 w-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
+                <p className="text-gray-400">Загрузка данных...</p>
+              </div>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </>
+    );
+  }
 
   // Mock данные для заказов
   const orders = [
@@ -215,7 +239,7 @@ function AccountContent() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-400 mb-2">
-                      Имя
+                      {user?.userType === 'legal' ? 'Название организации' : 'Имя'}
                     </label>
                     <div className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl">
                       {user?.name}
@@ -237,11 +261,76 @@ function AccountContent() {
                       {user?.phone || 'Не указан'}
                     </div>
                   </div>
-                  <div className="flex items-end">
-                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all">
-                      Редактировать профиль
-                    </button>
-                  </div>
+                  
+                  {/* УНП - только для юридических лиц */}
+                  {user?.userType === 'legal' && (
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-400 mb-2">
+                        УНП
+                      </label>
+                      <div className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl">
+                        {user?.unp || 'Не указан'}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Юридический адрес и банковские реквизиты - только для юридических лиц */}
+                {user?.userType === 'legal' && (
+                  <>
+                    <div className="mt-8 mb-4">
+                      <h3 className="text-xl font-bold text-blue-400">Юридическая информация</h3>
+                    </div>
+                    <div className="grid grid-cols-1 gap-6">
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-400 mb-2">
+                          Юридический адрес
+                        </label>
+                        <div className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl">
+                          {user?.legalAddress || 'Не указан'}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mt-8 mb-4">
+                      <h3 className="text-xl font-bold text-blue-400">Банковские реквизиты</h3>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-400 mb-2">
+                          Название банка
+                        </label>
+                        <div className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl">
+                          {user?.bankName || 'Не указан'}
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-400 mb-2">
+                          БИК банка
+                        </label>
+                        <div className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl">
+                          {user?.bankCode || 'Не указан'}
+                        </div>
+                      </div>
+                      <div className="md:col-span-2">
+                        <label className="block text-sm font-semibold text-gray-400 mb-2">
+                          Расчетный счет
+                        </label>
+                        <div className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl font-mono text-sm">
+                          {user?.bankAccount || 'Не указан'}
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                <div className="mt-6">
+                  <button 
+                    onClick={() => setIsEditModalOpen(true)}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all"
+                  >
+                    Редактировать профиль
+                  </button>
                 </div>
               </div>
             </div>
@@ -250,6 +339,12 @@ function AccountContent() {
       </main>
 
       <Footer />
+
+      {/* Edit Profile Modal */}
+      <EditProfileModal 
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+      />
     </>
   );
 }

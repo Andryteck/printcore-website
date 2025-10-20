@@ -12,6 +12,8 @@ export interface RegisterData {
   email: string;
   phone?: string;
   password: string;
+  userType?: 'individual' | 'legal';
+  unp?: string; // УНП для юридических лиц
 }
 
 interface AuthResponse {
@@ -91,8 +93,9 @@ export const authService = {
     }
 
     try {
-      // Получаем актуальные данные пользователя с сервера
-      const response = await apiClient.get<User>('/auth/me');
+      // Получаем полные актуальные данные пользователя с сервера
+      // Используем /users/me для получения всех полей из БД
+      const response = await apiClient.get<User>('/users/me');
       return response.data;
     } catch (error) {
       // Если токен невалиден или истек, удаляем его
@@ -101,10 +104,11 @@ export const authService = {
     }
   },
 
-  // Обновление профиля
-  async updateProfile(userId: string, data: Partial<User>): Promise<User> {
+  // Обновление профиля текущего пользователя
+  async updateProfile(data: Partial<User>): Promise<User> {
     try {
-      const response = await apiClient.patch<User>(`/users/${userId}`, data);
+      // Используем /users/me для обновления собственного профиля
+      const response = await apiClient.patch<User>('/users/me', data);
       return response.data;
     } catch (error) {
       throw new Error(handleApiError(error));

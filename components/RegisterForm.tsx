@@ -15,6 +15,8 @@ export default function RegisterForm() {
     phone: '',
     password: '',
     confirmPassword: '',
+    userType: 'individual' as 'individual' | 'legal', // Физическое лицо по умолчанию
+    unp: '', // УНП для юридических лиц
   });
   
   const [formErrors, setFormErrors] = useState({
@@ -23,6 +25,7 @@ export default function RegisterForm() {
     phone: '',
     password: '',
     confirmPassword: '',
+    unp: '',
   });
 
   const validateForm = () => {
@@ -32,16 +35,32 @@ export default function RegisterForm() {
       phone: '',
       password: '',
       confirmPassword: '',
+      unp: '',
     };
     let isValid = true;
 
     // Name validation
     if (!formData.name) {
-      errors.name = 'Имя обязательно';
+      errors.name = formData.userType === 'legal' 
+        ? 'Название организации обязательно' 
+        : 'Имя обязательно';
       isValid = false;
     } else if (formData.name.length < 2) {
-      errors.name = 'Имя должно быть минимум 2 символа';
+      errors.name = formData.userType === 'legal'
+        ? 'Название организации должно быть минимум 2 символа'
+        : 'Имя должно быть минимум 2 символа';
       isValid = false;
+    }
+
+    // УНП validation (для юридических лиц)
+    if (formData.userType === 'legal') {
+      if (!formData.unp) {
+        errors.unp = 'УНП обязателен для юридических лиц';
+        isValid = false;
+      } else if (!/^\d{9}$/.test(formData.unp)) {
+        errors.unp = 'УНП должен содержать 9 цифр';
+        isValid = false;
+      }
     }
 
     // Email validation
@@ -97,6 +116,10 @@ export default function RegisterForm() {
 
     try {
       const { confirmPassword, ...registerData } = formData;
+      // Убираем УНП для физических лиц
+      if (registerData.userType === 'individual') {
+        delete registerData.unp;
+      }
       await dispatch(registerUser(registerData)).unwrap();
       // Успешная регистрация - редирект
       window.location.href = '/account';
@@ -114,10 +137,43 @@ export default function RegisterForm() {
         </div>
       )}
 
-      {/* Name */}
+      {/* User Type Switch */}
+      <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700">
+        <label className="block text-sm font-semibold mb-3">
+          Тип регистрации
+        </label>
+        <div className="flex gap-3">
+          <button
+            type="button"
+            onClick={() => setFormData((prev) => ({ ...prev, userType: 'individual' }))}
+            className={`flex-1 px-4 py-3 rounded-lg font-medium transition-all ${
+              formData.userType === 'individual'
+                ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/30'
+                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+            }`}
+            disabled={isLoading}
+          >
+            Физическое лицо
+          </button>
+          <button
+            type="button"
+            onClick={() => setFormData((prev) => ({ ...prev, userType: 'legal' }))}
+            className={`flex-1 px-4 py-3 rounded-lg font-medium transition-all ${
+              formData.userType === 'legal'
+                ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/30'
+                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+            }`}
+            disabled={isLoading}
+          >
+            Юридическое лицо
+          </button>
+        </div>
+      </div>
+
+      {/* Name / Company Name */}
       <div>
         <label htmlFor="name" className="block text-sm font-semibold mb-2">
-          Имя
+          {formData.userType === 'legal' ? 'Название организации' : 'Имя'}
         </label>
         <input
           type="text"
@@ -130,13 +186,40 @@ export default function RegisterForm() {
               ? 'border-red-500 focus:border-red-400'
               : 'border-gray-700 focus:border-blue-500'
           }`}
-          placeholder="Иван Иванов"
+          placeholder={formData.userType === 'legal' ? 'ООО "Принт Коре"' : 'Иван Иванов'}
           disabled={isLoading}
         />
         {formErrors.name && (
           <p className="mt-2 text-sm text-red-400">{formErrors.name}</p>
         )}
       </div>
+
+      {/* УНП (только для юридических лиц) */}
+      {formData.userType === 'legal' && (
+        <div>
+          <label htmlFor="unp" className="block text-sm font-semibold mb-2">
+            УНП (Учетный номер плательщика)
+          </label>
+          <input
+            type="text"
+            id="unp"
+            name="unp"
+            value={formData.unp}
+            onChange={handleChange}
+            className={`w-full px-4 py-3 bg-gray-800 border rounded-xl text-white focus:outline-none transition-colors ${
+              formErrors.unp
+                ? 'border-red-500 focus:border-red-400'
+                : 'border-gray-700 focus:border-blue-500'
+            }`}
+            placeholder="123456789"
+            maxLength={9}
+            disabled={isLoading}
+          />
+          {formErrors.unp && (
+            <p className="mt-2 text-sm text-red-400">{formErrors.unp}</p>
+          )}
+        </div>
+      )}
 
       {/* Email */}
       <div>
