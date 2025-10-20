@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import PhoneLink from '@/components/PhoneLink';
+import YandexMap from '@/components/YandexMap';
 
 export default function ContactsPage() {
   return (
@@ -59,8 +60,8 @@ export default function ContactsPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Email</h3>
-                    <a href="mailto:info@printcore.by" className="text-blue-400 hover:text-blue-300">
-                      info@printcore.by
+                    <a href="mailto:printcorecenter@gmail.com" className="text-blue-400 hover:text-blue-300">
+                      printcorecenter@gmail.com
                     </a>
                   </div>
                 </div>
@@ -105,11 +106,14 @@ export default function ContactsPage() {
             <ContactForm />
           </div>
 
-          {/* Карта (заглушка) */}
-          <div className="mt-12 aspect-video bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
-            <div className="w-full h-full flex items-center justify-center text-6xl">
-              🗺️
-            </div>
+          {/* Яндекс.Карта */}
+          <div className="mt-12 bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden" style={{ height: '500px' }}>
+            <YandexMap 
+              apiKey="f3b7c027-5c75-4342-b16d-3c53c17537d0"
+              center={[53.891614, 27.527435]}
+              zoom={16}
+              address="Пр. Дзержинского 3Б, Минск, Беларусь"
+            />
           </div>
         </div>
       </main>

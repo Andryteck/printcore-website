@@ -108,7 +108,7 @@ export default function Footer() {
               </li>
               <li className={styles.contactItem}>
                 <span>📧</span>
-                <a href="mailto:info@printcore.by">info@printcore.by</a>
+                <a href="mailto:printcorecenter@gmail.com">printcorecenter@gmail.com</a>
               </li>
               <li className={styles.contactItem}>
                 <span>🕐</span>

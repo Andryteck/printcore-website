@@ -20,56 +20,56 @@ export default function ServicesPage() {
       price: 'от 1.2 руб',
       image: '/images/gallery/IMG_4678.JPG',
       badge: 'Хит',
-      link: 'https://printcore.by/photo'
+      link: '/services/photo'
     },
     {
       id: 2,
       title: 'Полиграфия',
       price: 'от 0.5 руб',
       image: '/images/gallery/IMG_4758.JPG',
-      link: 'https://printcore.by/all_poligrafy'
+      link: '/services/poligrafy'
     },
     {
       id: 3,
       title: 'Широкоформатная печать',
       price: 'от 2 руб',
       image: '/images/gallery/IMG_4689.JPG',
-      link: 'https://printcore.by/wide_format'
+      link: '/services/wide-format'
     },
     {
       id: 4,
       title: 'Переплетные работы',
       price: 'от 7 руб',
       image: '/images/gallery/IMG_4698.JPG',
-      link: 'https://printcore.by/order'
+      link: '/services/binding'
     },
     {
       id: 5,
       title: 'Дизайн полиграфии',
       price: 'от 17 руб',
       image: '/images/gallery/IMG_4685.JPG',
-      link: 'http://printcore.by/design_order'
+      link: '/services/design'
     },
     {
       id: 6,
       title: 'Печать документов',
       price: 'от 0.3 руб',
       image: '/images/gallery/IMG_4690.JPG',
-      link: 'https://printcore.by/order'
+      link: '/services/documents'
     },
     {
       id: 7,
       title: 'Наклейки, этикетки',
       price: 'от 0.4 руб',
       image: '/images/gallery/IMG_4696.JPG',
-      link: 'https://printcore.by/stikers'
+      link: '/services/stickers'
     },
     {
       id: 8,
       title: 'Сувениры и брендирование',
       price: 'от 25 руб',
       image: '/images/gallery/IMG_4706.JPG',
-      link: 'https://printcore.by/order'
+      link: '/services/souvenirs'
     }
   ];
 

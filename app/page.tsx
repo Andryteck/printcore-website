@@ -21,7 +21,7 @@ export default function HomePage() {
                 Профессиональная печать любой сложности
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                В отличном качестве и без задержек. Работаем с 2010 года.
+                В отличном качестве и без задержек.
               </p>
               <Link
                 href="/services"

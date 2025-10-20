@@ -16,6 +16,8 @@ export default function ServiceCard({ service, badge }: ServiceCardProps) {
       binding: '📚',
       design: '🎨',
       documents: '🖨️',
+      stickers: '🏷️',
+      souvenirs: '🎁',
     };
     return icons[service.category] || '📄';
   };
