@@ -129,6 +129,97 @@
   background: linear-gradient(to right, #1d4ed8, #0891b2);
 }
 
+.loginButtonIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginButtonIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Мобильные иконки */
+.mobileIcons {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  margin-right: 10px;
+}
+
+@media (max-width: 1023px) {
+  .mobileIcons {
+    display: flex;
+  }
+}
+
+.mobileIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: white;
+}
+
+.mobileIcon svg {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+.mobileIcon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.mobileIcon:hover svg {
+  transform: scale(1.1);
+}
+
+.mobileIcon:active {
+  transform: scale(0.95);
+}
+
+/* Бейдж корзины */
+.cartBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
 /* Burger Menu */
 .burger {
   display: inline-flex;
@@ -142,6 +233,7 @@
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 1001;
 }
 
 @media (min-width: 1024px) {
@@ -154,7 +246,8 @@
   width: 1.5rem;
   height: 0.125rem;
   background: white;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 2px;
 }
 
 .burger.active .burgerLine:nth-child(1) {
@@ -169,58 +262,581 @@
   transform: rotate(-45deg) translateY(-8px);
 }
 
-/* Mobile Menu */
-.mobileMenu {
-  position: absolute;
-  top: 100%;
+/* Стрелка назад для подменю */
+.burger.backMode .burgerLine:nth-child(1) {
+  width: 0.75rem;
+  height: 0.125rem;
+  transform: rotate(-45deg) translate(-3px, 4px);
+  transform-origin: left center;
+}
+
+.burger.backMode .burgerLine:nth-child(2) {
+  width: 1.25rem;
+  height: 0.125rem;
+  transform: none;
+  opacity: 1;
+}
+
+.burger.backMode .burgerLine:nth-child(3) {
+  width: 0.75rem;
+  height: 0.125rem;
+  transform: rotate(45deg) translate(-3px, -4px);
+  transform-origin: left center;
+}
+
+
+/* Боковое меню для мобильной версии */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 85%;
+  max-width: 400px;
+  height: 100vh;
+  background: linear-gradient(to bottom, #1a3a5f, #2c5282);
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
+  transition: left 0.4s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Заголовок бокового меню */
+.sidebarHeader {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  padding: 25px 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar.sidebarActive {
   left: 0;
-  width: 100%;
-  background: rgba(17, 24, 39, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgb(31, 41, 55);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 1024px) {
-  .mobileMenu {
+  .sidebar {
     display: none;
   }
 }
 
-.mobileMenuList {
+/* Элементы меню */
+.menuItems {
+  padding: 20px 0;
+  min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1.5rem 1rem;
-  list-style: none;
-  margin: 0;
+  justify-content: flex-start;
 }
 
-.mobileMenuLink {
-  display: block;
-  color: rgb(156, 163, 175);
-  text-decoration: none;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease;
-}
-
-.mobileMenuLink:hover {
+.menuItem {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 16px;
   color: white;
-  background: rgb(31, 41, 55);
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
 }
 
-.mobileLoginButton {
+.menuItem:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 25px;
+}
+
+.menuItem:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menuItemContent {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.menuItemIcon {
+  margin-right: 15px;
+  font-size: 20px;
+  width: 24px;
+  text-align: center;
+}
+
+.menuItemArrow {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 24px;
+  transition: transform 0.3s;
+  font-weight: 300;
+}
+
+.menuItem:hover .menuItemArrow {
+  transform: translateX(3px);
+  color: white;
+}
+
+/* Разделитель между секциями */
+.menuDivider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  margin: 20px 0;
+}
+
+/* Секции меню */
+.menuSection {
+  margin-bottom: 15px;
+}
+
+.menuSectionTitle {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0 20px 8px 20px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 8px;
+}
+
+/* Подменю */
+.submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, #1a3a5f, #2c5282);
+  transition: left 0.4s ease;
+  padding-top: 80px;
+  padding-bottom: 50px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.submenu::-webkit-scrollbar {
+  display: none;
+}
+
+.submenu.submenuActive {
+  left: 0;
+}
+
+.submenuTitle {
+  padding: 20px;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+  font-weight: 600;
+}
+
+.submenuItems {
+  padding: 10px 0;
+  min-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+}
+
+.submenuItem {
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 15px;
+  color: white;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.submenuItem:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 25px;
+}
+
+.submenuItemIcon {
+  margin-right: 12px;
+  font-size: 14px;
+  color: #a0c8ff;
+}
+
+
+/* Адаптивность для очень маленьких экранов */
+@media (max-width: 380px) {
+  .sidebar {
+    width: 90%;
+  }
+
+  .menuItem,
+  .submenuItem {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+
+  .menuItemIcon {
+    font-size: 18px;
+  }
+
+  .submenuTitle {
+    font-size: 16px;
+    padding: 15px;
+  }
+}
+
+/* Стили для поиска */
+.searchIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  background: linear-gradient(to right, #2563eb, #06b6d4);
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.searchIcon svg {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+.searchIcon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
   color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  text-align: center;
+}
+
+.searchIcon:hover svg {
+  transform: scale(1.1);
+}
+
+.searchIcon:active {
+  transform: scale(0.95);
+}
+
+/* Иконка избранного */
+.favoriteIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
   text-decoration: none;
+  color: #ef4444;
+}
+
+.favoriteIcon svg {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+.favoriteIcon:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.5);
+  transform: scale(1.05);
+  color: #f87171;
+}
+
+.favoriteIcon:hover svg {
+  transform: scale(1.1);
+  fill: currentColor;
+}
+
+.favoriteIcon:active {
+  transform: scale(0.95);
+}
+
+/* Счетчик избранного */
+.favoriteBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 4px;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+  animation: pulse 2s infinite;
+}
+
+/* Иконка корзины на десктопе */
+.cartIconDesktop {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #3b82f6;
+}
+
+.cartIconDesktop svg {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+.cartIconDesktop:hover {
+  background: rgba(37, 99, 235, 0.2);
+  border-color: rgba(37, 99, 235, 0.5);
+  transform: scale(1.05);
+  color: #60a5fa;
+}
+
+.cartIconDesktop:hover svg {
+  transform: scale(1.1);
+}
+
+.cartIconDesktop:active {
+  transform: scale(0.95);
+}
+
+/* Оверлей для модального окна поиска */
+.searchOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 100px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Модальное окно поиска */
+.searchModal {
+  background: linear-gradient(to bottom, #1a3a5f, #2c5282);
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 600px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.searchHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.searchHeader h3 {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.searchClose {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  line-height: 1;
+  padding: 0;
+}
+
+.searchClose:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.searchitem {
+  padding: 25px;
+}
+
+.searchform {
+  width: 100%;
+}
+
+.screenReaderText {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.searchform input[type="text"] {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.searchform input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.searchform input[type="text"]:focus {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.livesearchResults {
+  margin-top: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 15px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.livesearchResults.shown {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.livesearchNotfound {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 20px;
+  font-size: 15px;
+}
+
+.resultsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.searchResultItem {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+.searchResultItem:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateX(5px);
+}
+
+.resultLabel {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.resultCategory {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .searchOverlay {
+    padding-top: 50px;
+  }
+
+  .searchModal {
+    width: 95%;
+    margin: 0 10px;
+  }
+
+  .searchHeader h3 {
+    font-size: 18px;
+  }
+
+  .searchitem {
+    padding: 20px;
+  }
+
+  .searchform input[type="text"] {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
 }
 

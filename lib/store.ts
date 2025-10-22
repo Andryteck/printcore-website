@@ -6,6 +6,7 @@ import servicesReducer from './features/services/servicesSlice';
 import navigationReducer from './features/navigation/navigationSlice';
 import cartReducer from './features/cart/cartSlice';
 import authReducer from './features/auth/authSlice';
+import favoritesReducer from './features/favorites/favoritesSlice';
 
 export const makeStore = () => {
   return configureStore({
@@ -14,6 +15,7 @@ export const makeStore = () => {
       navigation: navigationReducer,
       cart: cartReducer,
       auth: authReducer,
+      favorites: favoritesReducer,
     },
   });
 };

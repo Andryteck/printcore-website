@@ -2,130 +2,353 @@
   background: rgb(17, 24, 39);
   border-top: 1px solid rgb(31, 41, 55);
   color: rgb(156, 163, 175);
+  padding: 3rem 0 1rem;
 }
 
-.container {
-  width: 100%;
+.footerWrapper {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 3rem 1rem;
-}
-
-.grid {
+  padding: 0 1rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
 @media (min-width: 768px) {
-  .grid {
+  .footerWrapper {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
+  .footerWrapper {
+    grid-template-columns: 2fr 1.5fr 1.5fr 2fr;
   }
 }
 
-/* Section */
-.section {
-  display: flex;
-  flex-direction: column;
-}
-
-.sectionTitle {
-  color: white;
-  font-weight: 700;
-  font-size: 1.125rem;
-  margin-bottom: 1rem;
-}
-
-.sectionText {
-  font-size: 0.875rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.socialLinks {
-  display: flex;
-  gap: 1rem;
-}
-
-.socialLink {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 9999px;
-  background: rgb(31, 41, 55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease;
-  text-decoration: none;
-}
-
-.socialLink:hover {
-  background: #2563eb;
-}
-
-/* Links */
-.linkList {
+/* Footer Groups */
+.footerGroup {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.5rem;
 }
 
-.linkList li {
-  font-size: 0.875rem;
+.toggleWrapper {
+  /* Можно добавить стили для мобильной аккордеон-функциональности */
 }
 
-.link {
-  color: rgb(156, 163, 175);
-  text-decoration: none;
-  transition: color 0.3s ease;
+.toggleItem {
+  display: flex;
+  flex-direction: column;
 }
 
-.link:hover {
-  color: white;
-}
-
-/* Contact */
-.contactList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Footer Items */
+.footerItem {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.contactItem {
+.footerTitle {
+  color: white;
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  display: block;
+}
+
+.footerTitle:hover {
+  color: #3b82f6;
+}
+
+.toggleBtn {
+  /* Стили для кнопки переключения (для мобильной версии) */
+}
+
+/* Links Group */
+.footerLinksGroup {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
   gap: 0.5rem;
+}
+
+.footerLinksGroup li {
   font-size: 0.875rem;
 }
 
-.contactItem a {
+.footerText {
   color: rgb(156, 163, 175);
   text-decoration: none;
   transition: color 0.3s ease;
+  font-size: 0.875rem;
+  display: inline-block;
 }
 
-.contactItem a:hover {
+.footerText:hover {
+  color: #06b6d4;
+}
+
+/* Contacts Section */
+.footerGroupSecondary {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerContacts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footerContactsGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footerTitleSecondary {
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.footerContactsGroup p:first-child {
+  margin-top: 0;
+}
+
+/* Info Wrapper - Payment, Social, Details */
+.footerInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.footerInfoPay,
+.footerInfoSocial,
+.footerInfoDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Payment Methods */
+.footerInfoPayWrapper {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.footerInfoPayItem {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  background: rgb(31, 41, 55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 1.25rem;
+  color: rgb(156, 163, 175);
+}
+
+.footerInfoPayItem:hover {
+  background: #3b82f6;
+  transform: translateY(-2px);
   color: white;
 }
 
-/* Copyright */
-.copyright {
-  border-top: 1px solid rgb(31, 41, 55);
-  margin-top: 2rem;
-  padding-top: 2rem;
-  text-align: center;
-  font-size: 0.875rem;
+.footerInfoPayItem img {
+  filter: brightness(0) saturate(100%) invert(72%) sepia(9%) saturate(380%) hue-rotate(178deg) brightness(90%) contrast(86%);
 }
 
+.footerInfoPayItem:hover img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
+/* Social Links */
+.footerInfoSocialWrapper {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footerInfoSocialItem {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgb(31, 41, 55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: rgb(156, 163, 175);
+}
+
+.footerInfoSocialItem:hover {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  color: white;
+}
+
+.footerInfoSocialItem img {
+  filter: brightness(0) saturate(100%) invert(72%) sepia(9%) saturate(380%) hue-rotate(178deg) brightness(90%) contrast(86%);
+  transition: filter 0.3s ease;
+}
+
+.footerInfoSocialItem:hover img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
+/* Details Content */
+.footerInfoDetailsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footerInfoDetailsContent p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Footer Logo */
+.footerLogo {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(31, 41, 55);
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.logoText:hover {
+  opacity: 0.8;
+}
+
+/* Copyright */
+.footerCopyright {
+  border-top: 1px solid rgb(31, 41, 55);
+  margin-top: 2rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footerCopyright p {
+  margin: 0;
+  color: rgb(156, 163, 175);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+
+  .footerWrapper {
+    gap: 1.5rem;
+  }
+
+  .footerTitle {
+    font-size: 1rem;
+  }
+
+  .footerInfoWrapper {
+    gap: 1.5rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .footerGroup1,
+  .footerGroup2 {
+    grid-column: span 1;
+  }
+
+  .footerGroup3,
+  .footerGroup4 {
+    grid-column: span 2;
+  }
+}
+
+/* Mobile accordion functionality (optional enhancement) */
+@media (max-width: 767px) {
+  .toggleBtn {
+    position: relative;
+    width: 100%;
+  }
+
+  .toggleBtn::after {
+    content: '▼';
+    position: absolute;
+    right: 0;
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+  }
+
+  .toggleItem.active .toggleBtn::after {
+    transform: rotate(180deg);
+  }
+
+  .toggleItem:not(.active) .footerLinksGroup,
+  .toggleItem:not(.active) .footerContacts,
+  .toggleItem:not(.active) .footerInfoPayWrapper,
+  .toggleItem:not(.active) .footerInfoSocialWrapper,
+  .toggleItem:not(.active) .footerInfoDetailsContent {
+    display: none;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footerItem,
+.footerGroupSecondary,
+.footerInfoWrapper > * {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Gradient text for titles (optional enhancement) */
+.footerTitle.gradient {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

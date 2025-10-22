@@ -1,0 +1,125 @@
+.container {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 80px 20px 60px;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  padding: 60px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.mainTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.headerInfo {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 40px 0 30px;
+  text-align: center;
+}
+
+.clause {
+  margin-bottom: 35px;
+  border-left: 4px solid #667eea;
+  padding-left: 25px;
+}
+
+.clauseTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.indent {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+}
+
+.highlight {
+  background: #f0f4ff;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 60px 15px 40px;
+  }
+
+  .content {
+    padding: 30px 20px;
+  }
+
+  .mainTitle {
+    font-size: 1.8rem;
+  }
+
+  .headerInfo {
+    font-size: 0.95rem;
+    padding: 12px 20px;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+
+  .clauseTitle {
+    font-size: 1.1rem;
+  }
+
+  .indent {
+    font-size: 0.95rem;
+  }
+
+  .clause {
+    padding-left: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainTitle {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .headerInfo {
+    font-size: 0.85rem;
+  }
+}
+

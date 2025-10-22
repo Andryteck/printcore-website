@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/lib/providers";
+import DiscountBanner from "@/components/DiscountBanner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -24,6 +25,17 @@ export default function RootLayout({
       <body className={`${inter.variable} antialiased`}>
         <StoreProvider>
           {children}
+          <DiscountBanner 
+            discount={15.0}
+            timeOut={2}
+            accentColor="#DF0050"
+            products={[
+              { href: 'https://printcore.by/produkciya/photobook', label: 'Фотоальбом' },
+              { href: 'https://printcore.by/produkciya/standar-foto', label: 'Стандартные Фотографии' },
+              { href: 'https://printcore.by/produkciya/zine-book', label: 'Zine Book (Зинбук)' },
+              { href: 'https://printcore.by/produkciya/kalendar-a3-perekidnoy', label: 'Настенный календарь А3 горизонтальный' },
+            ]}
+          />
         </StoreProvider>
       </body>
     </html>

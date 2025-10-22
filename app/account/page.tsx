@@ -105,6 +105,18 @@ function AccountContent() {
                   <button className="w-full text-left px-4 py-3 rounded-xl bg-blue-500/10 text-blue-400 font-semibold">
                     📦 Мои заказы
                   </button>
+                  <Link
+                    href="/cart"
+                    className="w-full text-left px-4 py-3 rounded-xl hover:bg-gray-800 text-gray-300 transition-colors block"
+                  >
+                    🛒 Корзина
+                  </Link>
+                  <Link
+                    href="/account/favorites"
+                    className="w-full text-left px-4 py-3 rounded-xl hover:bg-gray-800 text-gray-300 transition-colors block"
+                  >
+                    ❤️ Избранное
+                  </Link>
                   <button className="w-full text-left px-4 py-3 rounded-xl hover:bg-gray-800 text-gray-300 transition-colors">
                     👤 Профиль
                   </button>

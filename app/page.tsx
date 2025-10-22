@@ -1,6 +1,8 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ServicesSection from '@/components/ServicesSection';
+import FeaturesSection from '@/components/FeaturesSection';
+import PortfolioCard from '@/components/PortfolioCard';
 import Link from 'next/link';
 
 export default function HomePage() {
@@ -38,8 +40,100 @@ export default function HomePage() {
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl" />
         </section>
 
+        {/* Преимущества работы с нами */}
+        <FeaturesSection />
+
         {/* Услуги */}
         <ServicesSection />
+
+        {/* Портфолио */}
+        <section className="py-20 relative bg-gradient-to-b from-transparent to-blue-900/5">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <span className="inline-block px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-400 text-sm font-semibold uppercase tracking-wider mb-4 animate-fade-in">
+                Портфолио
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in-up">
+                Наши работы
+              </h2>
+              <p className="text-gray-400 text-lg max-w-2xl mx-auto animate-fade-in">
+                Более 500 успешно выполненных проектов для бизнеса и частных клиентов
+              </p>
+            </div>
+
+            {/* Сетка работ */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {[
+                { 
+                  title: 'Фотопечать высокого качества', 
+                  category: 'Фотопечать', 
+                  image: '/images/gallery/IMG_4678.JPG',
+                  description: 'Профессиональная печать фотографий',
+                  link: '/photo-printing'
+                },
+                { 
+                  title: 'Широкоформатная печать', 
+                  category: 'Баннеры', 
+                  image: '/images/gallery/IMG_4685.JPG',
+                  description: 'Яркие баннеры для рекламы',
+                  link: '/wide-format-printing'
+                },
+                { 
+                  title: 'Визитки премиум класса', 
+                  category: 'Визитки', 
+                  image: '/images/gallery/IMG_4689.JPG',
+                  description: 'Визитки на дизайнерской бумаге',
+                  link: '/business-cards'
+                },
+                { 
+                  title: 'Каталоги и брошюры', 
+                  category: 'Полиграфия', 
+                  image: '/images/gallery/IMG_4690.JPG',
+                  description: 'Многостраничная печать',
+                  link: '/printing'
+                },
+                { 
+                  title: 'Рекламные материалы', 
+                  category: 'Реклама', 
+                  image: '/images/gallery/IMG_4696.JPG',
+                  description: 'Листовки и флаеры',
+                  link: '/advertising'
+                },
+                { 
+                  title: 'Упаковка и этикетки', 
+                  category: 'Упаковка', 
+                  image: '/images/gallery/IMG_4698.JPG',
+                  description: 'Брендированная упаковка',
+                  link: '/packaging'
+                },
+              ].map((project, index) => (
+                <PortfolioCard
+                  key={index}
+                  title={project.title}
+                  category={project.category}
+                  image={project.image}
+                  description={project.description}
+                  link={project.link}
+                />
+              ))}
+            </div>
+
+            {/* Кнопка "Смотреть все" */}
+            <div className="text-center">
+              <Link
+                href="/portfolio"
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all shadow-lg shadow-purple-500/50 hover:shadow-purple-500/80 hover:scale-105 animate-scale-in"
+              >
+                <span>Смотреть все работы</span>
+                <span className="text-2xl">→</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Декоративные элементы */}
+          <div className="absolute top-20 right-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow" />
+          <div className="absolute bottom-20 left-10 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse-slow" />
+        </section>
 
         {/* О компании */}
         <section className="py-20 relative">
