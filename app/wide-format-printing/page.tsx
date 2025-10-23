@@ -61,7 +61,7 @@ export default function WideFormatPrintingPage() {
     {
       id: 7,
       title: 'Ситилайт постер',
-      city: 'citylight',
+      category: 'citylight',
       image: 'https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=800&q=80',
       format: '1.2x1.8 метра, backlit',
       description: 'Плакат для световых коробов'
