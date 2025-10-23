@@ -118,9 +118,11 @@ export default function RegisterForm() {
       const { confirmPassword, ...registerData } = formData;
       // Убираем УНП для физических лиц
       if (registerData.userType === 'individual') {
-        registerData.unp = undefined;
+        const { unp, ...dataWithoutUnp } = registerData;
+        await dispatch(registerUser(dataWithoutUnp)).unwrap();
+      } else {
+        await dispatch(registerUser(registerData)).unwrap();
       }
-      await dispatch(registerUser(registerData)).unwrap();
       // Успешная регистрация - редирект
       window.location.href = '/account';
     } catch (err) {
