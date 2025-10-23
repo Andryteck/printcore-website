@@ -118,7 +118,7 @@ export default function RegisterForm() {
       const { confirmPassword, ...registerData } = formData;
       // Убираем УНП для физических лиц
       if (registerData.userType === 'individual') {
-        delete registerData.unp;
+        registerData.unp = undefined;
       }
       await dispatch(registerUser(registerData)).unwrap();
       // Успешная регистрация - редирект
