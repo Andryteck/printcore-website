@@ -67,6 +67,11 @@ export default function Footer() {
             </Link>
             <ul className={styles.footerLinksGroup} itemScope itemType="https://schema.org/ItemList" itemProp="itemListElement">
               <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <Link className={styles.footerText} href="/photo-documents" itemProp="url">
+                  Фото на документы
+                </Link>
+              </li>
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
                 <Link className={styles.footerText} href="/photo-printing#standard" itemProp="url">
                   Стандартные форматы
                 </Link>
@@ -82,7 +87,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <Link className={styles.footerText} href="/photo-printing#retouching" itemProp="url">
+                <Link className={styles.footerText} href="/photo-retouching" itemProp="url">
                   Ретушь фото
                 </Link>
               </li>
@@ -192,7 +197,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <Link className={styles.footerText} href="/services#design" itemProp="url">
+                <Link className={styles.footerText} href="/services/design" itemProp="url">
                   Дизайн макетов
                 </Link>
               </li>
@@ -258,6 +263,11 @@ export default function Footer() {
               <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
                 <Link className={styles.footerText} href="/public-offer" itemProp="url">
                   Договор публичной оферты
+                </Link>
+              </li>
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <Link className={styles.footerText} href="/business-terms" itemProp="url">
+                  Условия для бизнеса
                 </Link>
               </li>
             </ul>
@@ -346,13 +356,16 @@ export default function Footer() {
             <p className={styles.footerTitle}>Наши реквизиты</p>
             <div className={styles.footerInfoDetailsContent}>
               <p className={styles.footerText}>
-                ИП «PrintCore»<br />
-                220116, г. Минск, пр. Дзержинского, д.3Б<br />
-                УНП 123456789
+                ООО «Светлан Эстетикс»<br />
+                РБ, 220069, г. Минск,<br />
+                Проспект Дзержинского 3Б, офис 5<br />
+                УНП: 193679900
               </p>
               <p className={styles.footerText}>
-                Банк: ЗАО "Альфа-Банк"<br />
-                Р/с: BY00ALFA00000000000000000
+                Текущий (расчетный):<br />
+                BY96ALFA30122D24630010270000 в BYN<br />
+                в ЗАО «Альфа-Банк»<br />
+                БИК: ALFABY2X
               </p>
               <p className={styles.footerText}>
                 Тел: <PhoneLink />

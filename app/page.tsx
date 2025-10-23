@@ -200,16 +200,56 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: '⚡', title: 'Быстро', desc: 'Срочные заказы за 24 часа' },
-                { icon: '💎', title: 'Качественно', desc: 'Современное оборудование' },
-                { icon: '💰', title: 'Выгодно', desc: 'Гибкая система скидок' },
-                { icon: '🎯', title: 'Надежно', desc: 'Гарантия на все услуги' },
+                { 
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  ),
+                  title: 'Быстро', 
+                  desc: 'Срочные заказы за 24 часа',
+                  gradient: 'from-yellow-500 to-orange-500'
+                },
+                { 
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                  ),
+                  title: 'Качественно', 
+                  desc: 'Современное оборудование',
+                  gradient: 'from-blue-500 to-cyan-500'
+                },
+                { 
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  ),
+                  title: 'Выгодно', 
+                  desc: 'Гибкая система скидок',
+                  gradient: 'from-green-500 to-emerald-500'
+                },
+                { 
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  ),
+                  title: 'Надежно', 
+                  desc: 'Гарантия на все услуги',
+                  gradient: 'from-purple-500 to-pink-500'
+                },
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-blue-500/50 transition-all"
+                  className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-blue-500/50 transition-all group hover:scale-105 hover:shadow-xl hover:shadow-blue-500/20"
                 >
-                  <div className="text-5xl mb-4">{item.icon}</div>
+                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
+                    <div className="text-white">
+                      {item.icon}
+                    </div>
+                  </div>
                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                   <p className="text-gray-400">{item.desc}</p>
                 </div>

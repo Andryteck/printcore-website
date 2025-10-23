@@ -2,6 +2,19 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import styles from '@/styles/services.module.css';
+ import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Услуги полиграфии и печати в Минске',
+  description: 'Полный спектр полиграфических услуг: фотопечать от 1.2 руб, широкоформатная печать, визитки, брошюры, наклейки, сувениры. Срочная печать за 24 часа. Качество гарантируем.',
+  keywords: 'услуги типографии, фотопечать Минск, полиграфия цены, печать визиток, широкоформатная печать, печать документов',
+  openGraph: {
+    title: 'Услуги полиграфии и печати — PrintCore',
+    description: 'Фотопечать, полиграфия, широкоформатная печать и другие услуги. Доступные цены и высокое качество.',
+    url: 'https://printcore.by/services',
+    type: 'website',
+  },
+};
 
 interface Product {
   id: number;

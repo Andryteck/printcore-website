@@ -357,11 +357,6 @@ export default function HeaderClient() {
           </Link>
         </li>
         <li>
-          <Link href="/photo-editor" className={styles.menuLink}>
-            Редактор фото
-          </Link>
-        </li>
-        <li>
           <button
             className={styles.searchIcon}
             onClick={() => setIsSearchOpen(true)}
@@ -543,12 +538,6 @@ export default function HeaderClient() {
             <div className={styles.menuItemContent}>
               <span className={styles.menuItemIcon}>📞</span>
               <span>Контакты</span>
-            </div>
-          </Link>
-          <Link href="/photo-editor" className={styles.menuItem} onClick={() => dispatch(closeMobileMenu())}>
-            <div className={styles.menuItemContent}>
-              <span className={styles.menuItemIcon}>📸</span>
-              <span>Редактор фото</span>
             </div>
           </Link>
         </div>

@@ -184,6 +184,31 @@
   color: var(--text);
 }
 
+/* Clickable feature */
+.clickable {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.clickable:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2),
+              0 0 30px rgba(59, 130, 246, 0.15);
+}
+
+.clickable .title::after {
+  content: ' →';
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.clickable:hover .title::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* Адаптивность */
 @media (max-width: 1024px) {
   .featuresSection {

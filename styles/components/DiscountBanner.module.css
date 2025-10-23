@@ -27,7 +27,7 @@
 }
 
 .discountBanner:not(.expanded) {
-  max-height: 70px;
+  max-height: 60px;
 }
 
 .discountBanner.expanded {
@@ -40,7 +40,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 16px 20px;
+  padding: 12px 20px;
   background: linear-gradient(135deg, var(--accent-color, #DF0050) 0%, var(--accent-color, #DF0050)dd 100%);
   border: none;
   cursor: pointer;
@@ -62,6 +62,9 @@
   font-weight: bold;
   margin-right: 12px;
   animation: pulse 2s ease-in-out infinite;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
 @keyframes pulse {
@@ -76,12 +79,18 @@
 .toggleText {
   flex: 1;
   text-align: left;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
 .arrow {
   font-size: 16px;
   transition: transform 0.3s ease;
   font-style: normal;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
 .arrowUp {
@@ -96,7 +105,7 @@
 .closeButton {
   position: absolute;
   top: -19px;
-  right: 6px;
+  right: -8px;
   width: 32px;
   height: 32px;
   border: none;
@@ -122,7 +131,7 @@
 
 /* Основной контент */
 .content {
-  padding: 24px 20px;
+  padding: 12px 20px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.4s ease;
@@ -130,7 +139,7 @@
 
 .expanded .content {
   max-height: 500px;
-  padding: 24px 20px;
+  padding: 12px 20px;
 }
 
 .title {
@@ -233,8 +242,9 @@
   }
 
   .toggleButton {
-    padding: 12px 16px;
+    padding: 16px 16px;
     font-size: 16px;
+    align-items: center;
   }
 
   .title {
@@ -242,11 +252,11 @@
   }
 
   .content {
-    padding: 16px;
+    padding: 12px 16px;
   }
 
   .expanded .content {
-    padding: 16px;
+    padding: 12px 16px;
   }
 }
 
@@ -257,12 +267,16 @@
 
   .toggleButton {
     font-size: 14px;
-    padding: 10px 12px;
+    padding: 14px 12px;
+    align-items: center;
   }
 
   .discountIcon {
     font-size: 20px;
     margin-right: 8px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
   }
 
   .title {
@@ -272,6 +286,18 @@
   .productLink {
     font-size: 13px;
     padding: 6px 10px;
+  }
+
+  .toggleText {
+    line-height: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .arrow {
+    line-height: 1;
+    display: flex;
+    align-items: center;
   }
 }
 

@@ -25,11 +25,11 @@ export default function CartPage() {
 
   const handleCheckout = () => {
     if (!isAuthenticated) {
-      // Перенаправляем на страницу входа с возвратом на корзину
-      router.push('/login?redirect=/cart');
+      // Перенаправляем на страницу входа с возвратом на оформление заказа
+      router.push('/login?redirect=/checkout');
     } else {
       // Перенаправляем на оформление заказа
-      router.push('/account');
+      router.push('/checkout');
     }
   };
 
@@ -314,4 +314,6 @@ export default function CartPage() {
     </>
   );
 }
+
+
 

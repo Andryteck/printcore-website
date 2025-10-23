@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function BlogPage() {
   const articles = [
@@ -10,7 +11,7 @@ export default function BlogPage() {
       excerpt: 'Разбираемся в типах бумаги и покрытиях для создания визиток премиум-класса',
       date: '15 марта 2024',
       category: 'Советы',
-      icon: '💼'
+      image: '/images/blog/business-cards.jpg'
     },
     {
       id: 2,
@@ -18,7 +19,7 @@ export default function BlogPage() {
       excerpt: 'Какую технологию выбрать для вашего проекта? Сравниваем преимущества и недостатки',
       date: '10 марта 2024',
       category: 'Технологии',
-      icon: '🖨️'
+      image: '/images/blog/printing-tech.jpg'
     },
     {
       id: 3,
@@ -26,7 +27,7 @@ export default function BlogPage() {
       excerpt: 'Чек-лист для дизайнеров: что проверить перед отправкой макета в типографию',
       date: '5 марта 2024',
       category: 'Дизайн',
-      icon: '🎨'
+      image: '/images/blog/design-prep.jpg'
     },
     {
       id: 4,
@@ -34,7 +35,7 @@ export default function BlogPage() {
       excerpt: 'Экологичные материалы, минимализм и другие актуальные направления',
       date: '1 марта 2024',
       category: 'Тренды',
-      icon: '📦'
+      image: '/images/blog/packaging-trends.png'
     },
     {
       id: 5,
@@ -42,7 +43,7 @@ export default function BlogPage() {
       excerpt: 'Где применяется УФ-печать и какие преимущества она дает вашему бизнесу',
       date: '25 февраля 2024',
       category: 'Технологии',
-      icon: '☀️'
+      image: '/images/blog/uv-printing.jpg'
     },
     {
       id: 6,
@@ -50,7 +51,7 @@ export default function BlogPage() {
       excerpt: 'Практические советы по оптимизации бюджета на полиграфию',
       date: '20 февраля 2024',
       category: 'Советы',
-      icon: '💰'
+      image: '/images/blog/save-money.jpg'
     },
   ];
 
@@ -81,9 +82,14 @@ export default function BlogPage() {
                 href={`/blog/${article.id}`}
                 className="group block bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all"
               >
-                {/* Превью */}
-                <div className="aspect-video bg-gradient-to-br from-blue-900/20 to-cyan-900/20 flex items-center justify-center text-7xl group-hover:scale-105 transition-transform">
-                  {article.icon}
+                {/* Превью изображения */}
+                <div className="relative aspect-video overflow-hidden">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
 
                 {/* Контент */}

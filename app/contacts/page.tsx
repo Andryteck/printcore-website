@@ -3,6 +3,19 @@ import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import PhoneLink from '@/components/PhoneLink';
 import YandexMap from '@/components/YandexMap';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Контакты типографии PrintCore в Минске',
+  description: 'Свяжитесь с PrintCore: Пр. Дзержинского 3Б, Минск. Телефон: +375 33 336 5678. Email: printcorecenter@gmail.com. Режим работы: Пн-Пт 9:00-18:00. Telegram, форма обратной связи.',
+  keywords: 'контакты PrintCore, типография Минск адрес, печать контакты, PrintCore телефон, типография на Дзержинского',
+  openGraph: {
+    title: 'Контакты PrintCore — Типография в Минске',
+    description: 'Адрес: Пр. Дзержинского 3Б. Телефон: +375 33 336 5678. Пн-Пт 9:00-18:00',
+    url: 'https://printcore.by/contacts',
+    type: 'website',
+  },
+};
 
 export default function ContactsPage() {
   return (

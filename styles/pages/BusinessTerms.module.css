@@ -1,0 +1,505 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 50px 0;
+  color: #2d3748;
+}
+
+/* Преимущества */
+.advantagesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.advantageCard {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.advantageCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.advantageIcon {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.advantageIcon img {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.advantageTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  color: #2d3748;
+}
+
+.advantageText {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* Услуги */
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.serviceItem {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.serviceItem h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: #667eea;
+  display: flex;
+  align-items: center;
+}
+
+.serviceItem h3 img {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.serviceItem ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.serviceItem li {
+  padding: 8px 0;
+  color: #4a5568;
+  line-height: 1.6;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.serviceItem li:last-child {
+  border-bottom: none;
+}
+
+.serviceItem li:before {
+  content: '✓ ';
+  color: #48bb78;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+/* Секция скачивания */
+.downloadSection {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 60px 20px;
+}
+
+.downloadCard {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.downloadTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  color: #2d3748;
+  text-align: center;
+}
+
+.downloadText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4a5568;
+  margin: 0 0 20px 0;
+}
+
+.downloadList {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 30px 0;
+}
+
+.downloadList li {
+  padding: 10px 0 10px 30px;
+  color: #4a5568;
+  line-height: 1.6;
+  position: relative;
+}
+
+.downloadList li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #48bb78;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.downloadButtons {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.downloadButton {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 18px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.downloadButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+}
+
+.downloadButton img {
+  filter: brightness(0) invert(1);
+}
+
+.downloadNote {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #718096;
+  font-style: italic;
+}
+
+/* Контактная секция */
+.contactSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contactText {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #4a5568;
+  margin: 0 0 40px 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contactMethods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.contactMethod {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contactMethod h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  color: #667eea;
+  display: flex;
+  align-items: center;
+}
+
+.contactMethod h3 img {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.contactMethod p {
+  font-size: 1rem;
+  color: #2d3748;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.contactSchedule {
+  font-size: 0.9rem !important;
+  color: #718096 !important;
+  font-weight: 400 !important;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.ctaButton {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+}
+
+.ctaButtonSecondary {
+  display: inline-block;
+  background: white;
+  color: #667eea;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.ctaButtonSecondary:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Секция отраслей */
+.industriesSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.industriesSubtitle {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #4a5568;
+  margin: 0 0 50px 0;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.industriesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.industryCard {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.industryCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.industryIcon {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.industryIcon img {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.industryTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: #2d3748;
+  text-align: center;
+}
+
+.industryDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #4a5568;
+  margin: 0;
+  text-align: center;
+}
+
+.industryCardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.industryCardLink:hover .industryCard {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* FAQ секция */
+.faqSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.faqItem {
+  padding: 25px;
+  background: #f7fafc;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.faqItem h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  color: #2d3748;
+}
+
+.faqItem p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .advantagesGrid,
+  .servicesGrid,
+  .contactMethods,
+  .faqGrid,
+  .industriesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .downloadCard {
+    padding: 30px 20px;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ctaButton,
+  .ctaButtonSecondary {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 50px 15px;
+  }
+
+  .section {
+    padding: 40px 15px;
+  }
+
+  .advantageCard,
+  .serviceItem,
+  .contactMethod {
+    padding: 20px;
+  }
+
+  .downloadButton {
+    padding: 14px 25px;
+    font-size: 1rem;
+  }
+}
+

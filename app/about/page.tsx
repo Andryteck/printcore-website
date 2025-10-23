@@ -2,6 +2,19 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'О компании — Типография PrintCore в Минске',
+  description: '15+ лет опыта в полиграфии. Современное оборудование Konica Minolta, Fujifilm, Epson. Качество без компромиссов. 5000+ довольных клиентов. Узнайте о нашей миссии и технологиях.',
+  keywords: 'типография Минск, PrintCore о компании, оборудование типографии, профессиональная печать, цифровая печать Konica Minolta',
+  openGraph: {
+    title: 'О компании PrintCore — Профессиональная типография в Минске',
+    description: '15+ лет опыта. Современное оборудование. 5000+ довольных клиентов. Качество без компромиссов.',
+    url: 'https://printcore.by/about',
+    type: 'website',
+  },
+};
 
 export default function AboutPage() {
   return (

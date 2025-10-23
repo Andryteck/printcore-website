@@ -6,6 +6,9 @@ import Footer from '@/components/Footer';
 import PortfolioCard from '@/components/PortfolioCard';
 import Link from 'next/link';
 
+// Метаданные для client component добавляем через metadata.ts файл
+// См. portfolio/metadata.ts
+
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState('Все');
 

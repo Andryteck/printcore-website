@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from '@/styles/components/FeaturesSection.module.css';
 
 export default function FeaturesSection() {
@@ -7,25 +8,29 @@ export default function FeaturesSection() {
       icon: '/images/features/calculator.png',
       title: 'Онлайн-калькулятор',
       description: 'Узнайте стоимость печати в онлайн-калькуляторе здесь и сейчас.',
-      alt: 'Онлайн-калькулятор'
+      alt: 'Онлайн-калькулятор',
+      link: null
     },
     {
       icon: '/images/features/order-247.png',
       title: 'Заказывайте 24/7',
       description: 'Размещайте свои заказы в 2 клика в удобное для вас время.',
-      alt: 'Заказывайте 24/7'
+      alt: 'Заказывайте 24/7',
+      link: null
     },
     {
       icon: '/images/features/design.png',
       title: 'Нет макета?',
       description: 'Создайте макет с помощью наших профессиональных дизайнеров и сразу отправьте в печать.',
-      alt: 'Нет макета?'
+      alt: 'Нет макета?',
+      link: '/services/design'
     },
     {
       icon: '/images/features/delivery.png',
       title: 'Отправим в ваш город',
       description: 'Доставим прямо в офис или домой. Выбирайте: БелПочта, Европочта, CDEK, Яндекс и др.',
-      alt: 'Отправим в ваш город'
+      alt: 'Отправим в ваш город',
+      link: null
     }
   ];
 
@@ -33,24 +38,36 @@ export default function FeaturesSection() {
     <section className={styles.featuresSection}>
       <div className={styles.container}>
         <div className={styles.featuresGrid}>
-          {features.map((feature, index) => (
-            <div key={index} className={styles.featureItem}>
-              <div className={styles.iconWrapper}>
-                <Image
-                  src={feature.icon}
-                  alt={feature.alt}
-                  title={feature.title}
-                  width={120}
-                  height={120}
-                  className={styles.icon}
-                />
+          {features.map((feature, index) => {
+            const content = (
+              <>
+                <div className={styles.iconWrapper}>
+                  <Image
+                    src={feature.icon}
+                    alt={feature.alt}
+                    title={feature.title}
+                    width={120}
+                    height={120}
+                    className={styles.icon}
+                  />
+                </div>
+                <div className={styles.content}>
+                  <h3 className={styles.title}>{feature.title}</h3>
+                  <p className={styles.description}>{feature.description}</p>
+                </div>
+              </>
+            );
+
+            return feature.link ? (
+              <Link key={index} href={feature.link} className={`${styles.featureItem} ${styles.clickable}`}>
+                {content}
+              </Link>
+            ) : (
+              <div key={index} className={styles.featureItem}>
+                {content}
               </div>
-              <div className={styles.content}>
-                <h3 className={styles.title}>{feature.title}</h3>
-                <p className={styles.description}>{feature.description}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

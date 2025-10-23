@@ -6,3 +6,13 @@ NEXT_PUBLIC_API_URL=http://localhost:3001/api
 # Получите ключ на https://web3forms.com
 NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_web3forms_access_key_here
 
+# BePaid Payment Gateway (Тестовый режим)
+# Получите тестовые ключи на https://bepaid.by
+NEXT_PUBLIC_BEPAID_CHECKOUT_URL=https://checkout.bepaid.by
+BEPAID_SHOP_ID=your_shop_id_here
+BEPAID_SECRET_KEY=your_secret_key_here
+
+# Для тестирования используйте:
+# Test Shop ID: 361
+# Test Secret Key: b8647b68898b084b836474ed8d61ffe117c9a01168d867f24953b776ddcb134d
+

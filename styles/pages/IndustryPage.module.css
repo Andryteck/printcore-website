@@ -1,0 +1,346 @@
+.container {
+  min-height: auto;
+}
+
+.container:not(.hero) {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero секция */
+.hero {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.heroImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.heroImageContent {
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroContent {
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.heroSubtitle {
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Описание отрасли */
+.industryDescription {
+  padding: 80px 0;
+  background: #f8fafc;
+}
+
+
+.descriptionText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4a5568;
+  margin: 0 0 20px 0;
+  max-width: 800px;
+}
+
+/* Продукты */
+.productsSection {
+  padding: 80px 0;
+}
+
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 60px 0;
+  color: #2d3748;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.productCategory {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.categoryTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: #667eea;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.productList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.productItem {
+  padding: 12px 0;
+  color: #4a5568;
+  line-height: 1.6;
+  border-bottom: 1px solid #f1f5f9;
+  position: relative;
+  padding-left: 25px;
+}
+
+.productItem:last-child {
+  border-bottom: none;
+}
+
+.productItem:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #48bb78;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Преимущества */
+.advantagesSection {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+
+.advantagesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.advantageCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.advantageIcon {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.advantageIcon img {
+  filter: brightness(0) invert(1);
+}
+
+.advantageCard h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  color: white;
+}
+
+.advantageCard p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* CTA секция */
+.ctaSection {
+  padding: 80px 0;
+  background: white;
+  text-align: center;
+}
+
+
+.ctaTitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  color: #2d3748;
+}
+
+.ctaText {
+  font-size: 1.2rem;
+  color: #4a5568;
+  margin: 0 0 40px 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaButtonPrimary {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.ctaButtonPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+}
+
+.ctaButtonSecondary {
+  display: inline-block;
+  background: white;
+  color: #667eea;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.ctaButtonSecondary:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .container:not(.hero) {
+    padding: 0 15px;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .productsGrid,
+  .advantagesGrid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .productCategory {
+    padding: 20px;
+  }
+
+  .advantageCard {
+    padding: 20px;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ctaButtonPrimary,
+  .ctaButtonSecondary {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .industryDescription,
+  .productsSection,
+  .advantagesSection,
+  .ctaSection {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container:not(.hero) {
+    padding: 0 10px;
+  }
+
+  .hero {
+    height: 400px;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.8rem;
+  }
+
+  .industryDescription,
+  .productsSection,
+  .advantagesSection,
+  .ctaSection {
+    padding: 40px 0;
+  }
+
+  .productsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .productCategory {
+    padding: 15px;
+  }
+}
