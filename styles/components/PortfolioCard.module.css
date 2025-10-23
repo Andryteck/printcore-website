@@ -9,10 +9,22 @@
   animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1) backwards;
 }
 
+/* Светлая тема для карточек портфолио */
+[data-theme="light"] .card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
 .card:hover {
   transform: translateY(-8px);
   border-color: rgba(59, 130, 246, 0.5);
   box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+}
+
+/* Светлая тема - hover эффекты */
+[data-theme="light"] .card:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
 }
 
 .imageContainer {
@@ -94,6 +106,19 @@
   font-size: 0.875rem;
   line-height: 1.5;
   animation: fadeIn 0.6s ease 0.4s backwards;
+}
+
+/* Светлая тема для текста */
+[data-theme="light"] .title {
+  color: #1e293b;
+}
+
+[data-theme="light"] .card:hover .title {
+  color: #3b82f6;
+}
+
+[data-theme="light"] .description {
+  color: #64748b;
 }
 
 .icon {

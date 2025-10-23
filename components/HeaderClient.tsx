@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { lockScroll, unlockScroll } from '@/lib/utils/scrollLock';
 import Cart from './Cart';
 import SearchModal from './Modals/SearchModal';
+import ThemeToggle from './ThemeToggle';
 import styles from '@/styles/components/Header.module.css';
 
 // Данные меню с подкатегориями
@@ -407,6 +408,9 @@ export default function HeaderClient() {
               Войти
             </Link>
           )}
+        </li>
+        <li>
+          <ThemeToggle />
         </li>
       </ul>
 

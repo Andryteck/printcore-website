@@ -12,6 +12,13 @@
   background: rgb(17, 24, 39);
 }
 
+/* Светлая тема для карточек услуг */
+[data-theme="light"] .card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
 .card::before {
   content: '';
   position: absolute;
@@ -27,6 +34,12 @@
   transform: translateY(-5px);
   box-shadow: 0 20px 50px rgba(59, 130, 246, 0.2);
   border-color: rgba(59, 130, 246, 0.5);
+}
+
+/* Светлая тема - hover эффекты */
+[data-theme="light"] .card:hover {
+  box-shadow: 0 20px 50px rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
 }
 
 .image {

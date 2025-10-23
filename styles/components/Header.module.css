@@ -5,6 +5,13 @@
   backdrop-filter: blur(10px);
   background: rgba(17, 24, 39, 0.85);
   border-bottom: 1px solid rgb(31, 41, 55);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Светлая тема для Header */
+[data-theme="light"] .header {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .nav {
@@ -28,6 +35,12 @@
   align-items: center;
   text-decoration: none;
   color: white;
+  transition: color 0.3s ease;
+}
+
+/* Светлая тема для бренда */
+[data-theme="light"] .brand {
+  color: #1e293b;
 }
 
 .brandLogo {
@@ -49,11 +62,13 @@
   font-weight: 800;
   color: white;
   line-height: 1.2;
+  transition: color 0.3s ease;
 }
 
 .brandNameLight {
   font-weight: 300;
   color: rgb(209, 213, 219);
+  transition: color 0.3s ease;
 }
 
 .brandSubtitle {
@@ -62,6 +77,20 @@
   color: rgb(156, 163, 175);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+/* Светлая тема для названия бренда */
+[data-theme="light"] .brandName {
+  color: #1e293b;
+}
+
+[data-theme="light"] .brandNameLight {
+  color: #64748b;
+}
+
+[data-theme="light"] .brandSubtitle {
+  color: #94a3b8;
 }
 
 /* Contact Info */
@@ -109,6 +138,16 @@
 .menuLink:hover {
   color: white;
   background: rgb(31, 41, 55);
+}
+
+/* Светлая тема для меню */
+[data-theme="light"] .menuLink {
+  color: #64748b;
+}
+
+[data-theme="light"] .menuLink:hover {
+  color: #1e293b;
+  background: #f1f5f9;
 }
 
 .loginButton {
@@ -171,6 +210,13 @@
   color: white;
 }
 
+/* Светлая тема для мобильных иконок */
+[data-theme="light"] .mobileIcon {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #1e293b;
+}
+
 .mobileIcon svg {
   width: 20px;
   height: 20px;
@@ -181,6 +227,12 @@
   background: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.4);
   transform: scale(1.05);
+}
+
+/* Светлая тема - hover для мобильных иконок */
+[data-theme="light"] .mobileIcon:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 .mobileIcon:hover svg {
@@ -250,6 +302,11 @@
   border-radius: 2px;
 }
 
+/* Светлая тема для бургер-меню */
+[data-theme="light"] .burgerLine {
+  background: #1e293b;
+}
+
 .burger.active .burgerLine:nth-child(1) {
   transform: rotate(45deg) translateY(8px);
 }
@@ -306,6 +363,12 @@
   -ms-overflow-style: none;
 }
 
+/* Светлая тема для бокового меню */
+[data-theme="light"] .sidebar {
+  background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+}
+
 /* Заголовок бокового меню */
 .sidebarHeader {
   font-size: 24px;
@@ -317,6 +380,13 @@
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Светлая тема для заголовка бокового меню */
+[data-theme="light"] .sidebarHeader {
+  color: #1e293b;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 .sidebar::-webkit-scrollbar {
@@ -358,6 +428,16 @@
 .menuItem:hover {
   background-color: rgba(255, 255, 255, 0.1);
   padding-left: 25px;
+}
+
+/* Светлая тема для элементов меню */
+[data-theme="light"] .menuItem {
+  color: #1e293b;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .menuItem:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .menuItem:first-child {
@@ -594,6 +674,51 @@
   padding: 2px 4px;
   box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
   animation: pulse 2s infinite;
+}
+
+/* Переключатель темы */
+.theme-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+/* Скрыть переключатель темы на мобильных устройствах */
+@media (max-width: 1023px) {
+  .theme-toggle {
+    display: none;
+  }
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Светлая тема для переключателя темы */
+[data-theme="light"] .theme-toggle {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #1e293b;
+}
+
+[data-theme="light"] .theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Иконка корзины на десктопе */
