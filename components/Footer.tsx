@@ -96,6 +96,11 @@ export default function Footer() {
                   Фоторедактор онлайн
                 </Link>
               </li>
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <Link className={styles.footerText} href="/photo-albums" itemProp="url">
+                  Фотоальбомы
+                </Link>
+              </li>
             </ul>
           </li>
 

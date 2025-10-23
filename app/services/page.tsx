@@ -40,7 +40,7 @@ export default function ServicesPage() {
       title: 'Полиграфия',
       price: 'от 0.5 руб',
       image: '/images/gallery/IMG_4758.JPG',
-      link: '/services/poligrafy'
+      link: '/services/polygraphy'
     },
     {
       id: 3,

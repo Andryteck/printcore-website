@@ -1,0 +1,378 @@
+.albumPreview {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 20px 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.previewHeader {
+  margin-bottom: 30px;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #f8fafc;
+}
+
+.albumInfo {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.albumTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #f8fafc;
+}
+
+.albumDescription {
+  color: #a1a1aa;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.albumStats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  color: #a1a1aa;
+  font-size: 14px;
+}
+
+.stat strong {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+/* Controls */
+.previewControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.viewModeToggle {
+  display: flex;
+  gap: 8px;
+}
+
+.viewModeButton {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #a1a1aa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.viewModeButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
+}
+
+.viewModeButton.active {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+  border-color: transparent;
+}
+
+.pageNavigation {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f8fafc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navButton:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.navButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  color: #a1a1aa;
+  font-weight: 600;
+}
+
+/* Preview Content */
+.previewContent {
+  min-height: 500px;
+  margin-bottom: 30px;
+}
+
+.spreadView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+}
+
+.albumPage {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 4/3;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+}
+
+.pageContent {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Layout Styles */
+.gridLayout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+}
+
+.gridItem {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gridItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.masonryLayout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+}
+
+.masonryItem {
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.masonryItem:nth-child(odd) {
+  grid-row: span 2;
+}
+
+.masonryItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.timelineLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  padding: 20px 0;
+}
+
+.timelineItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.timelineItem img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 60px;
+  top: 100px;
+  width: 2px;
+  height: 20px;
+  background: #3b82f6;
+}
+
+/* Grid View */
+.gridView {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.pageThumbnail {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.thumbnailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  color: #a1a1aa;
+}
+
+.thumbnailContent {
+  padding: 16px;
+  aspect-ratio: 4/3;
+}
+
+/* Footer */
+.previewFooter {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+}
+
+.priceInfo {
+  flex: 1;
+}
+
+.priceEstimate {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.priceLabel {
+  color: #a1a1aa;
+  font-size: 16px;
+}
+
+.priceValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+.priceDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.priceDetails span {
+  color: #a1a1aa;
+  font-size: 14px;
+}
+
+.previewActions {
+  display: flex;
+  gap: 16px;
+}
+
+.backButton,
+.saveButton {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.backButton {
+  background: rgba(255, 255, 255, 0.1);
+  color: #a1a1aa;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
+}
+
+.saveButton {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+  border: none;
+}
+
+.saveButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .previewControls {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .viewModeToggle {
+    order: 2;
+  }
+  
+  .pageNavigation {
+    order: 1;
+  }
+  
+  .previewFooter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .previewActions {
+    justify-content: center;
+  }
+  
+  .gridLayout {
+    grid-template-columns: 1fr;
+  }
+  
+  .masonryLayout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

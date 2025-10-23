@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { lockScroll, unlockScroll } from '@/lib/utils/scrollLock';
 import Cart from './Cart';
+import SearchModal from './Modals/SearchModal';
 import styles from '@/styles/components/Header.module.css';
 
 // Данные меню с подкатегориями
@@ -591,68 +592,13 @@ export default function HeaderClient() {
 
 
       {/* Модальное окно поиска */}
-      {isSearchOpen && (
-        <div className={styles.searchOverlay} onClick={closeSearch}>
-          <div className={styles.searchModal} onClick={(e) => e.stopPropagation()}>
-            <div className={styles.searchHeader}>
-              <h3>Поиск услуг</h3>
-              <button className={styles.searchClose} onClick={closeSearch}>
-                ✕
-              </button>
-            </div>
-            
-            <div className={styles.searchitem}>
-              <form 
-                role="search" 
-                className={styles.searchform}
-                onSubmit={(e) => e.preventDefault()}
-              >
-                <div style={{ position: 'relative' }}>
-                  <label className={styles.screenReaderText} htmlFor="s">
-                    Найти:
-                  </label>
-                  <input 
-                    type="text" 
-                    value={searchQuery} 
-                    onChange={(e) => handleSearch(e.target.value)}
-                    name="s" 
-                    id="s"
-                    placeholder="Введите запрос..."
-                    autoFocus
-                  />
-                  <div className={`${styles.livesearchResults} ${searchQuery.length >= 3 || searchQuery.length > 0 ? styles.shown : ''}`}>
-                    {searchQuery.length < 3 ? (
-                      <div className={styles.livesearchNotfound}>
-                        Поиск начнётся после ввода 3-х символов
-                      </div>
-                    ) : searchResults.length > 0 ? (
-                      <div className={styles.resultsContainer}>
-                        {searchResults.map((result, index) => (
-                          <a
-                            key={index}
-                            href={result.href}
-                            className={styles.searchResultItem}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={closeSearch}
-                          >
-                            <div className={styles.resultLabel}>{result.label}</div>
-                            <div className={styles.resultCategory}>{result.category}</div>
-                          </a>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className={styles.livesearchNotfound}>
-                        Ничего не найдено
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      )}
+      <SearchModal
+        isOpen={isSearchOpen}
+        onClose={closeSearch}
+        searchResults={searchResults}
+        searchQuery={searchQuery}
+        onSearch={handleSearch}
+      />
 
       {/* Компонент корзины */}
       <Cart />

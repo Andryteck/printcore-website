@@ -1,0 +1,15 @@
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="200" fill="#ffffff" stroke="#e9ecef" stroke-width="2"/>
+  <rect x="30" y="30" width="70" height="50" fill="#f8f9fa" stroke="#dee2e6"/>
+  <rect x="110" y="30" width="70" height="50" fill="#f8f9fa" stroke="#dee2e6"/>
+  <rect x="190" y="30" width="70" height="50" fill="#f8f9fa" stroke="#dee2e6"/>
+  <rect x="30" y="90" width="70" height="50" fill="#f8f9fa" stroke="#dee2e6"/>
+  <rect x="110" y="90" width="70" height="50" fill="#f8f9fa" stroke="#dee2e6"/>
+  <rect x="190" y="90" width="70" height="50" fill="#f8f9fa" stroke="#dee2e6"/>
+  <text x="150" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#495057">
+    Минимализм
+  </text>
+  <text x="150" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6c757d">
+    Minimal Layout
+  </text>
+</svg>

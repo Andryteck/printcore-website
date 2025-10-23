@@ -19,7 +19,7 @@ export default function Header() {
         </Link>
 
         {/* Контактная информация (скрыта на планшетах) */}
-        <div className={styles.contactContainer}>
+        {/* <div className={styles.contactContainer}>
           <span className={styles.contactItem}>
             <i className="mr-2">📍</i>
             Пр. Дзержинского 3Б
@@ -28,7 +28,7 @@ export default function Header() {
             <i className="mr-2">📞</i>
             <PhoneLink />
           </span>
-        </div>
+        </div> */}
 
         {/* Клиентская часть - меню, навигация, мобильное меню */}
         <HeaderClient />

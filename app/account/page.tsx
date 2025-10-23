@@ -6,7 +6,7 @@ import { logoutUser } from '@/lib/features/auth/authSlice';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProtectedRoute from '@/components/ProtectedRoute';
-import EditProfileModal from '@/components/EditProfileModal';
+import EditProfileModal from '@/components/Modals/EditProfileModal';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
