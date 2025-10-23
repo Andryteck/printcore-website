@@ -37,3 +37,5 @@ next-env.d.ts
 # markdown documentation (exclude all except README.md)
 *.md
 !README.md
+
+.vercel

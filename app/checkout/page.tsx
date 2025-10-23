@@ -25,8 +25,8 @@ export default function CheckoutPage() {
 
   const [customerData, setCustomerData] = useState<CustomerData>({
     email: user?.email || '',
-    firstName: user?.firstName || '',
-    lastName: user?.lastName || '',
+    firstName: user?.name?.split(' ')[0] || '',
+    lastName: user?.name?.split(' ').slice(1).join(' ') || '',
     phone: user?.phone || '',
     comment: '',
   });
